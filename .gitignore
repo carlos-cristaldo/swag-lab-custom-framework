@@ -37,3 +37,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Custom ###
+!**/src/test/resources/
+src/test/java/com/demo/swaglabs/utilities/Scratch.java
