@@ -26,7 +26,7 @@ public class InventoryPage extends BasePage {
 
     public InventoryPage(WebDriver driver) {
         super(driver);
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 15); // 15 seconds timeout
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 15);
         PageFactory.initElements(factory, this);
     }
 

@@ -5,4 +5,9 @@ public abstract class Constants {
     public static final String LOGIN_PAGE_MAIN_TITLE = "Swag Labs";
     public static final String PRODUCTS_PAGE_MAIN_LABEL = "Products";
     public static final String CART_PAGE_MAIN_LABEL = "Your Cart";
+    public static final String CHECKOUT_STEP_ONE_PAGE_MAIN_LABEL = "Checkout: Your Information";
+    public static final String CHECKOUT_STEP_TWO_PAGE_MAIN_LABEL = "Checkout: Overview";
+    public static final String ORDER_COMPLETE_PAGE_MAIN_LABEL = "Checkout: Complete!";
+    public static final String THANK_YOU_MESSAGE = "Thank you for your order!";
+    public static final String DISPATCH_MESSAGE = "Your order has been dispatched, and will arrive just as fast as the pony can get there!";
 }
