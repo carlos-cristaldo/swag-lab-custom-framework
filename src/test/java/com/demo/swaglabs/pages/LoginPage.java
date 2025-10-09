@@ -31,7 +31,7 @@ public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 15); // 15 seconds timeout
+        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 15);
         PageFactory.initElements(factory, this);
     }
 

@@ -17,6 +17,9 @@ public class BasePage {
     @FindBy(xpath = "//span[@data-test=\"title\"]")
     protected WebElement mainLabel;
 
+    @FindBy(id = "continue")
+    protected WebElement continueButton;
+
     public BasePage(WebDriver driver){
         this.driver=driver;
     }
