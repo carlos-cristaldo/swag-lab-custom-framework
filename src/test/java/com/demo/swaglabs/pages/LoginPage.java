@@ -29,6 +29,9 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//div[@data-test=\"login-password\"]")
     private WebElement loginPassword;
 
+    @FindBy(xpath = "//h3[@data-test=\"error\"]")
+    private WebElement errorMessage;
+
     public LoginPage(WebDriver driver) {
         super(driver);
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 15);
@@ -54,6 +57,14 @@ public class LoginPage extends BasePage{
         enterText(inputPassword, pass);
         clickElement(loginButton);
         return new InventoryPage(driver);
+    }
+
+    public String getErrorMessage(){
+        return errorMessage.getText();
+    }
+
+    public boolean isErrorMessageDisplayed(){
+        return errorMessage.isDisplayed();
     }
 
 
