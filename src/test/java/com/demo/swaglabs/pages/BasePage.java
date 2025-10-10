@@ -14,6 +14,7 @@ public class BasePage {
 
     protected WebDriver driver;
 
+
     @FindBy(xpath = "//span[@data-test=\"title\"]")
     protected WebElement mainLabel;
 
@@ -42,4 +43,6 @@ public class BasePage {
     }
 
 
+
+//     private static final Logger logger = LoggerFactory.getLogger(Scratch.class);
 }
