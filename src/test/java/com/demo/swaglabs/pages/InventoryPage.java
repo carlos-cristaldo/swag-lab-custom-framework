@@ -23,6 +23,9 @@ public class InventoryPage extends BasePage {
     @FindBy(xpath = "//button[text()=\"Remove\"]")
     private List<WebElement> removeButtonList;
 
+    @FindBy(xpath="//div[@data-test=\"inventory-item\"]")
+    private List<WebElement> inventoryItemsList;
+
 
     public InventoryPage(WebDriver driver) {
         super(driver);
@@ -38,6 +41,10 @@ public class InventoryPage extends BasePage {
         clickElement(addToCartButtonList.getFirst());
     }
 
+    public void selectProductProduct(int index){
+        clickElement(addToCartButtonList.get(index));
+    }
+
     public boolean isAtLeastOneProductSelected(){
         return !removeButtonList.isEmpty();
     }
@@ -49,6 +56,10 @@ public class InventoryPage extends BasePage {
     public CartPage clickShoppingCart(){
         clickElement(shoppingCartLink);
         return new CartPage(driver);
+    }
+
+    public List<WebElement> getInventoryItems(){
+        return inventoryItemsList;
     }
 
 }
