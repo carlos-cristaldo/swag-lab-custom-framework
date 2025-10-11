@@ -7,10 +7,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class CartPage extends BasePage {
 
     @FindBy(id = "checkout")
     private WebElement checkoutButton;
+
+    @FindBy(xpath = "//div[@class=\"cart_item_label\"]")
+    private WebElement itemDescription;
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -25,6 +31,10 @@ public class CartPage extends BasePage {
     public CheckoutStepOnePage clickCheckoutButton(){
         clickElement(checkoutButton);
         return new CheckoutStepOnePage(driver);
+    }
+
+    public List<String> getDescriptionList(){
+        return  Arrays.asList(itemDescription.getText().split("\n"));
     }
 
 }
