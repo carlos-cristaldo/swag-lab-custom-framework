@@ -15,4 +15,8 @@ public abstract class Constants {
     public static final String INVALID_USER_AND_PASSWORD_MESSAGE = "Epic sadface: Username and password do not match any user in this service";
     public static final String EMPTY_USER_MESSAGE = "Epic sadface: Username is required";
     public static final String EMPTY_PASSWORD_MESSAGE = "Epic sadface: Password is required";
+    public static final String ORDER_BY_NAME_DESCENDING = "za";
+    public static final String ORDER_BY_NAME_ASCENDING = "az";
+    public static final String ORDER_BY_PRICE_ASCENDING = "lohi";
+    public static final String ORDER_BY_PRICE_DESCENDING = "hilo";
 }

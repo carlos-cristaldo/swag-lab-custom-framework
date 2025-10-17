@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -25,6 +26,15 @@ public class InventoryPage extends BasePage {
 
     @FindBy(xpath="//div[@data-test=\"inventory-item\"]")
     private List<WebElement> inventoryItemsList;
+
+    @FindBy(xpath="//div[@data-test=\"inventory-item-name\"]")
+    private List<WebElement> itemNameList;
+
+    @FindBy(xpath="//div[@data-test=\"inventory-item-price\"]")
+    private List<WebElement> itemPriceList;
+
+    @FindBy(xpath="//select[@data-test=\"product-sort-container\"]")
+    private WebElement sortSelector;
 
 
     public InventoryPage(WebDriver driver) {
@@ -60,6 +70,15 @@ public class InventoryPage extends BasePage {
 
     public List<WebElement> getInventoryItems(){
         return inventoryItemsList;
+    }
+
+    public List<WebElement> getItemNameList() { return itemNameList; }
+
+    public List<WebElement> getItemPriceList() { return itemPriceList; }
+
+    public void setSortSelector(String criteria){
+        Select select = new Select(sortSelector);
+        select.selectByValue(criteria);
     }
 
 }

@@ -11,6 +11,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -46,7 +50,7 @@ public class BaseTest {
         chromePrefs.put("profile.password_manager_enabled", false);
         chromePrefs.put("profile.password_manager_leak_detection", false);
         chromeOptions.setExperimentalOption("prefs", chromePrefs);
-        chromeOptions.addArguments("--no-headless");
+        chromeOptions.addArguments("--headless");
         return chromeOptions;
     }
 
@@ -64,6 +68,18 @@ public class BaseTest {
             logger.info(o.toString());
 
         }
+    }
+
+    protected BigDecimal convertStringIntoBigDecimal(String stringPrice){
+        BigDecimal convertedString = null;
+        try {
+            NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+            Number number = format.parse(stringPrice);
+            convertedString = new BigDecimal(number.doubleValue()).setScale(2, RoundingMode.HALF_UP);
+        } catch (ParseException e) {
+            errorLogger(List.of("Error parsing price string: ", e.getMessage()));
+        }
+        return convertedString;
     }
 
     public static void put(Object key, Object value) {
